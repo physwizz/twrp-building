@@ -150,7 +150,7 @@ To add fastbootd
 
 On device.mk add this
 
-# fastbootd
+#fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
@@ -290,7 +290,7 @@ Part E Building 11 & 12
 
 
 Orange fox
-==========
+
 
 mkdir ~/OrangeFox_sync
 cd ~/OrangeFox_sync
@@ -306,7 +306,7 @@ cd ~/OrangeFox_sync/sync/
 
 
 Building ofox
-=============
+
 
 export ALLOW_MISSING_DEPENDENCIES=true
 export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
