@@ -11,7 +11,7 @@ sudo apt-get install git-all
 sudo apt install python-is-python3
 sudo apt install python3-pip
 
-    # for github.com 
+for github.com 
 git config --global user.email "your email"
 git config --global user.name "your name"
 
@@ -55,7 +55,8 @@ python3 -m twrpdtgen recovery.img
 
 4.5. to add extra partitions in recovery.fstab
 
-    # V3
+V3
+
 /system_image  emmc  /dev/block/mapper/system  flags=backup=0;flashimg=1;display="System Image"
 
 /vendor_image  emmc  /dev/block/mapper/vendor  flags=backup=0;flashimg=1;display="Vendor Image"
@@ -64,7 +65,8 @@ python3 -m twrpdtgen recovery.img
 
 /odm_image  emmc  /dev/block/mapper/odm  flags=backup=0;flashimg=1;display="Odm Image"
 
-    # External 
+External 
+
 /external_sd auto  /dev/block/mmcblk1p1 /dev/block/mmcblk1 flags=storage;wipeingui;removable
 
 /usb-otg auto  /dev/block/sda1 /dev/block/sda   flags=display="USB-OTG";storage;wipeingui;removable
@@ -114,11 +116,13 @@ You may have to compress kernel image or reduce the size of kernel
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
 
-    # compress ramdisk
+compress ramdisk
+
 BOARD_RAMDISK_USE_LZMA := true
 LZMA_RAMDISK_TARGETS := recovery
 
-    # To save more space
+To save more space
+
 BOARD_HAS_NO_REAL_SDCARD := true
 
 To add fastbootd 
@@ -127,8 +131,8 @@ On BoardConfig.mk
 TW_INCLUDE_FASTBOOTD := true
 
 On device.mk add this
+fastbootd
 
-    # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
@@ -154,7 +158,7 @@ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifes
 
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j4
 
-* copy ~/TWRP/twrpdtgen/output/samsung 
+copy ~/TWRP/twrpdtgen/output/samsung 
 to /twrp-11/device/samsung
 
 12. Building
