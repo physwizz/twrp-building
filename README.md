@@ -1,9 +1,9 @@
 # twrp-building
 
-TWRP Building 
-=============
+TWRP Building For Beginners
+
 1. Setup
---------
+
 sudo apt update
 sudo apt upgrade
 sudo apt-get install git-all
@@ -16,7 +16,7 @@ git config --global user.email "your email"
 git config --global user.name "your name"
 
 2. swapfile
------------
+
 sudo swapoff -a
 
 sudo dd if=/dev/zero of=/swapfile bs=1G count=8
@@ -26,16 +26,16 @@ sudo swapon /swapfile
 free -m
 
 3. repo
--------
+
 
 mkdir -p ~/.bin
 PATH="${HOME}/.bin:${PATH}"
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 chmod a+rx ~/.bin/repo
 
-Basic Device Tree
-==================
-1. setup twrpdtgen
+4. Basic Device Tree
+
+4.1. setup twrpdtgen
 
 mkdir ~/TWRP
 cd ~/TWRP
@@ -44,16 +44,16 @@ git clone https://github.com/twrpdtgen/twrpdtgen
 pip3 install twrpdtgen
 sudo apt install cpio
 
-2. copy stock recovery.img to ~/TWRP/twrpdtgen
+4.2. copy stock recovery.img to ~/TWRP/twrpdtgen
 
 cd twrpdtgen
 python3 -m twrpdtgen recovery.img
 
-3. rename ~/TWRP/twrpdtgen/output/samsung/a12s/omni_a12s.mk to twrp_a12s.mk
+4.3. rename ~/TWRP/twrpdtgen/output/samsung/a12s/omni_a12s.mk to twrp_a12s.mk
 
-4. delete vendorsetup.sh
+4.4. delete vendorsetup.sh
 
-5. to add extra partitions in recovery.fstab
+4.5. to add extra partitions in recovery.fstab
 
 # V3
 /system_image  emmc  /dev/block/mapper/system  flags=backup=0;flashimg=1;display="System Image"
@@ -143,8 +143,8 @@ cd scripts
 sudo bash setup/android_build_env.sh
 sudo bash setup/install_android_sdk.sh
 
-TWRP 11
-=======
+11. TWRP 11
+
 mkdir ~/twrp-11
 
 cd ~/twrp-11
@@ -156,8 +156,8 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 * copy ~/TWRP/twrpdtgen/output/samsung 
 to /twrp-11/device/samsung
 
-Building
--------------
+12. Building
+
 export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
 lunch twrp_a12s-eng
