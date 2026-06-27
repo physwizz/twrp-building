@@ -11,7 +11,7 @@ sudo apt-get install git-all
 sudo apt install python-is-python3
 sudo apt install python3-pip
 
-# for github.com 
+    # for github.com 
 git config --global user.email "your email"
 git config --global user.name "your name"
 
@@ -55,7 +55,7 @@ python3 -m twrpdtgen recovery.img
 
 4.5. to add extra partitions in recovery.fstab
 
-# V3
+    # V3
 /system_image  emmc  /dev/block/mapper/system  flags=backup=0;flashimg=1;display="System Image"
 
 /vendor_image  emmc  /dev/block/mapper/vendor  flags=backup=0;flashimg=1;display="Vendor Image"
@@ -64,7 +64,7 @@ python3 -m twrpdtgen recovery.img
 
 /odm_image  emmc  /dev/block/mapper/odm  flags=backup=0;flashimg=1;display="Odm Image"
 
-# External 
+    # External 
 /external_sd auto  /dev/block/mmcblk1p1 /dev/block/mmcblk1 flags=storage;wipeingui;removable
 
 /usb-otg auto  /dev/block/sda1 /dev/block/sda   flags=display="USB-OTG";storage;wipeingui;removable
@@ -72,14 +72,14 @@ python3 -m twrpdtgen recovery.img
 5.1
 Change
 
-# /sdcard        sdfat     /dev/block/mmcblk1p1                                 flags=display=sdcard
+    # /sdcard        sdfat     /dev/block/mmcblk1p1                                 flags=display=sdcard
 
-Also
-# /preload       ext4      /dev/block/platform/bootdevice/by-name/hidden        flags=display=preload
+    Also
+    # /preload       ext4      /dev/block/platform/bootdevice/by-name/hidden        flags=display=preload
 
-# /keydata       ext4      /dev/block/platform/bootdevice/by-name/keydata       flags=display=keydata
+    # /keydata       ext4      /dev/block/platform/bootdevice/by-name/keydata       flags=display=keydata
 
-# /keyrefuge     f2fs      /dev/block/platform/bootdevice/by-name/keyrefuge     flags=display=keyrefuge
+    # /keyrefuge     f2fs      /dev/block/platform/bootdevice/by-name/keyrefuge     flags=display=keyrefuge
 
 To add system wipe
 
@@ -103,10 +103,10 @@ change omni to twrp (4 spots)
 
 10. Add to boardconfig.mk
 
-TW_NO_SCREEN_TIMEOUT := true
-TW_NO_SCREEN_BLANK := true
-#TW_SCREEN_BLANK_ON_BOOT := true
-TW_DEVICE_VERSION := 1_physwizz
+    TW_NO_SCREEN_TIMEOUT := true
+    TW_NO_SCREEN_BLANK := true
+    #TW_SCREEN_BLANK_ON_BOOT := true
+    TW_DEVICE_VERSION := 1_physwizz
 
 To save space
 -----------------------
@@ -114,11 +114,11 @@ You may have to compress kernel image or reduce the size of kernel
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
 
-# compress ramdisk
+    # compress ramdisk
 BOARD_RAMDISK_USE_LZMA := true
 LZMA_RAMDISK_TARGETS := recovery
 
-# To save more space
+    # To save more space
 BOARD_HAS_NO_REAL_SDCARD := true
 
 To add fastbootd 
@@ -127,7 +127,8 @@ On BoardConfig.mk
 TW_INCLUDE_FASTBOOTD := true
 
 On device.mk add this
-# fastbootd
+
+    # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
